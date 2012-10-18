@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Single-Page Apps with Ember</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" href="../core/deck.core.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+  <link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+  <link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" href="../extensions/status/deck.status.css">
+  <link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+  <link rel="stylesheet" href="../extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" href="../themes/style/swiss.css">
+  <link rel="stylesheet" href="../themes/style/zendesk.css">
+  <link rel="stylesheet" href="assets/ember.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" href="../themes/transition/vertical-slide.css">
+
+  <!-- Required Modernizr file -->
+  <script src="../modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide chapter green">
+  <h1 style="font-size: 84px;">
+    Single-Page Apps<br/><span style="font-size: 67px;">with</span>
+   <img src="assets/ember_sm.png" />
+   <img src="../themes/style/grey_lotus.svg" />
+  </h1>
+</section>
+
+<section class="slide">
+  <header>me</header>
+  <p>Nathan Rapheld</p>
+  <p>Senior Software Engineer<p>
+  <p>@rapheld</p>
+  <p>https://github.com/rapheld</p>
+</section>
+
+<section class="slide chapter">
+  <h1><img src="assets/buddhy.png" /></h1>
+</section>
+
+<section class="slide">
+  <header>New Zendesk</header>
+  <br/>
+  <img style="border:1px solid #aaa" src="assets/lotus_screenshot.png" />
+</section>
+
+<section class="slide">
+  <header>The Tools</header>
+  <br/>
+  <h1 id="tools" class="side-by-side" style="width:750px">
+    <img src="assets/ember_sm.png" />
+    <img src="assets/handlebars_sm.png" />
+    <img src="assets/jquery_sm.png" />
+  </h1>
+</section>
+
+<section class="slide">
+  <header>Ember Philosophy</header>
+  <ul>
+    <li>Ruby on Rails heritage</li>
+    <li>Client-side MVC Framework</li>
+    <li>Convention over configuration</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <header>Why Ember?</header>
+  <ul>
+    <li>Ember class system</li>
+    <li>Data bindings</li>
+    <li>Computed properties</li>
+    <li>Synchronization of the DOM</li>
+    <li>Routing (State Machine)</li>
+  </ul>
+</section>
+
+
+<section class="slide">
+  <h1 style="font-size: 84px;">
+    Noted
+    <br/>
+    <span style="font-size: 48px;">Tomorrow's Clipboard</span>
+    <br/>
+    <span style="font-size: 24px;">(the demo)</span>
+  </h1>
+</section>
+
+
+<section class="slide">
+<header>Getting Started</header>
+<br/>
+<h5>Dependencies</h5>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Noted&lt;/title&gt;
+&lt;script type="text/javascript" src="vendor/<span class="pop">jquery-1.7.2.js</span>"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="vendor/<span class="pop">handlebars-1.0.rc.1.js</span>"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="vendor/<span class="pop">ember-1.0.pre.js</span>"&gt&lt;/script&gt;
+&lt;script type="text/javascript" src="lib/seed.js"&gt;&lt;/script&gt;
+
+&lt;link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="stylesheets/main.css" /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+
+
+<section class="slide">
+<header>Getting Started</header>
+<br/>
+<h5>Define Application</h5>
+<pre><code>&lt;script&gt;
+window.Noted = Ember.Application.create({
+
+  ApplicationController: Ember.Controller.extend(),
+
+  ApplicationView: Ember.View.extend({
+    <span class="pop">templateName: 'application'</span>,
+    elementId: 'noted',
+    classNames: ['container']
+  })
+});
+&lt;/script&gt;</pre></code>
+<h5>Build "layout" Template</h5>
+<pre><code>&lt;script type="<span class="pop">text/x-handlebars</span>" data-template-name="<span class="pop">application</span>"&gt;
+  &lt;h3 class="header"&gt;Noted&lt;/h3&gt;
+  <span class="pop">{{outlet body}}</span>
+  &lt;h3 class="footer"&gt;&lt;/h3&gt;
+&lt;/script&gt;</pre></code>
+</section>
+
+
+<section class="slide">
+<header>Model</header>
+<br/>
+<h5>Single element Model (for example)</h5>
+<pre><code>// Noted.Note = Ember.Object.extend({
+//   id: null,
+//   title: null,
+//   message: null,
+//   createdAt: null,
+//
+//   // computed property
+<span class="pop">//   daysOld: function() {
+//     var now  = new Date().getTime(),
+//         then = new Date(this.get('createdAt')).getTime();
+//     return Math.floor((now - then) / (1000*60*60*24));
+//   }.property('createdAt')</span>
+// });
+//
+// // Against an API (for you to implement)
+// Noted.Note = Ember.Object.extend({ // model definition });
+//
+// // class method returning JSON
+// Noted.Note.all = function() { ... };</code></pre>
+<h5>Collection Model (what we're using)</h5>
+<pre><code>Noted.notes = Ember.Object.create({
+  <span class="pop">content</span>: Ember.A(<em>seedData.splice(0,3)</em>)
+});
+</pre></code>
+</section>
+
+
+<section class="slide">
+<header>View &amp; Controller</header>
+<p>
+View and Controller names have same prefix:<br/>
+<span class="pop">xxx</span>View &amp; <span class="pop">xxx</span>Controller
+</p>
+<h5>View for listing notes</h5>
+<pre><code>Noted.NotesView = Ember.View.extend({
+  templateName: 'notes',
+  tagName: 'ul',
+  classNames: ['list', 'container-fluid']
+});</pre></code>
+<h5>...and the cooresponding Controller</h5>
+<pre><code>Noted.NotesController = Ember.ArrayController.extend({
+  <span class="pop">contentBinding</span>: 'Noted.notes.content'
+});</pre></code>
+</section>
+
+
+<section class="slide">
+<header>Template</header>
+<br/>
+<h5>NotesView Template</h5>
+<pre><code>&lt;script type="text/x-handlebars" data-template-name="notes"&gt;
+{{#each note in <span class="pop">controller</span>}}
+  &lt;div class="row-fluid note"&gt;
+    &lt;h5 class="title"&gt;{{note.title}}&lt;/h5&gt;
+    &lt;div class="message"&gt;{{note.message}}&lt;/div&gt;
+  &lt;/div&gt;
+{{/each}}
+&lt;div class="meta right"&gt;{{<span class="pop">controller</span>.length}} in list&lt;/div&gt;
+&lt;/script&gt;</pre></code>
+</section>
+
+
+<section class="slide">
+<header>Ember.Router</header>
+<ul>
+  <li>Ember.Router = State Machine + Routable Mixin</li>
+  <li>Builds and binds appropriate Views &amp; Controllers
+  <li>Manages serialization &amp; deserialization</li>
+</ul>
+</section>
+
+
+<section class="slide">
+<header>Ember.Router</header>
+<br/>
+<h5>Setup routes</h5>
+<pre><code>Noted.Router = Ember.Router.extend({
+  <span class="pop">root</span>: Ember.Route.extend({
+
+    <span class="pop">index</span>: Ember.Route.extend({
+      route: '/',
+      redirectsTo: 'notes.index'
+    }),
+
+    <span class="pop">notes</span>: Ember.Route.extend({
+      route: '/notes',
+
+      <span class="pop">index</span>: Ember.Route.extend({
+        route: '/',
+        connectOutlets: function(router, context) {
+          var controller = router.get('applicationController');
+          controller.connectOutlet('body', 'notes');
+        },
+      })
+
+    })
+  })
+});</pre></code>
+</section>
+
+
+<section class="slide">
+<header>Ember.Router#connectOutlet</header>
+<br/>
+<h5>What's going on in #connectOutlet?</h5>
+<pre><code>connectOutlets: function(router, context) {
+  var controller = router.get('applicationController');
+  controller.connectOutlet('<span class="pop">body</span>', '<span class="pop">notes</span>');
+}</code></pre>
+<ul>
+  <li>An instance of <span class="pop">Notes</span>View is created</li>
+  <li>An instance of <span class="pop">Notes</span>Controller is created</li>
+  <li>Targets {{outlet <span class="pop">body</span>}} for use</li>
+  <li>Assumes Controller has data in it's <code>content</code> property</li>
+</ul>
+</section>
+
+
+<section class="slide">
+<header>Ember.Router#connectOutlet</header>
+<br/>
+<h5>Optionally, omit name from {{outlet}} if only one exists</h5>
+<pre><code>controller.connectOutlet('notes');</code></pre>
+<h5>Optionally, provide data for template</h5>
+<pre><code>controller.connectOutlet('navBar', 'navigation' //, optional data);</code></pre>
+</section>
+
+
+<section class="slide">
+<header>Initialization</header>
+<p>After defining the App, all MVCs, the Router, and Templates</p>
+<h5>Initialize the app</h5>
+<pre><code>[...]
+
+// declare everything before this
+<span class="pop">Noted.initialize();</span>
+
+&lt;/script&gt;</code></pre>
+<p>This creates </p>
+</section>
+
+
+<section class="slide">
+<header>Show a Note</header>
+<p>Let's add a page to display a single note:</p>
+<h5>Define new View, Controller...</h5>
+<pre><code>Noted.NoteView = Ember.View.extend({
+  templateName: 'note',
+  classNames: ['note', 'container-fluid']
+});
+
+Noted.NoteController = Ember.Controller.extend();</code></pre>
+<h5>and Template</h5>
+<pre><code>&lt;script type="text/x-handlebars" data-template-name="note"&gt;
+&lt;div class="row-fluid"&gt;
+  &lt;h5 class="title"&gt;{{controller.content.title}}&lt;/h5&gt;
+  &lt;div class="message"&gt;{{controller.content.message}}&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="meta"&gt;&lt;a <span class="pop">{{action goToNotes}}</span>&gt;back&lt;/a&gt;&lt;/div&gt;
+&lt;/script&gt;</code></pre>
+</section>
+
+
+<section class="slide">
+<header>Show a Note</header>
+<br/>
+<h5>And update the notes Template with links</h5>
+<pre><code>&lt;script type="text/x-handlebars" data-template-name="notes"&gt;
+{{#each note in controller}}
+  &lt;div class="row-fluid note"&gt;
+    &lt;h5 class="title"&gt;
+      <span class="pop">&lt;a {{action showNote note href=true}}&gt;</span>{{note.title}}<span class="pop">&lt;/a&gt;</span>
+    &lt;/h5&gt;
+    &lt;div class="message"&gt;{{note.message}}&lt;/div&gt;
+  &lt;/div&gt;
+{{/each}}
+
+&lt;div class="meta"&gt;{{controller.length}} in list&lt;/div&gt;
+&lt;/script&gt;</pre></code>
+</section>
+
+
+<section class="slide">
+<header>Show a Note</header>
+<br/>
+<h5>Adding a nested route</h5>
+<pre><code>Noted.Router = Ember.Router.extend({
+  [...]
+  notes: Ember.Route.extend({
+    [...]
+
+    <span class="pop">showNote: Ember.Route.transitionTo('notes.show'),</span>
+    <span class="pop">goToNotes: Ember.Route.transitionTo('notes.index'),</span>
+
+    <span class="pop">show: Ember.Route.extend({
+      route: '/:id',
+      serialize: function(router, context) {
+        return {id: context.id};
+      },
+      deserialize: function(router, context) {
+        var controller = router.get('notesController');
+        return controller.findProperty('id', context.id);
+      },
+      connectOutlets: function(router, aNote) {
+        var controller = router.get('applicationController');
+        controller.connectOutlet('body', 'note', aNote);
+      }
+    })</span>
+  })
+});</pre></code>
+</section>
+
+
+<section class="slide">
+<header>Show a Note</header>
+<br/>
+<h5>Building the URL from object info</h5>
+<pre><code>serialize: function(router, context) {
+  return {id: context.id};
+}</code></pre>
+<h5>Finding the object from URL info</h5>
+<pre><code>deserialize: function(router, context) {
+  var controller = router.get('notesController');
+  return controller.findProperty('id', context.id);
+}</code></pre>
+</section>
+
+
+<section class="slide">
+<header>Show a Note</header>
+<br/>
+<h5>Context comes from deserialization return</h5>
+<pre><code>connectOutlets: function(router, aSingleNote) {
+  var controller = router.get('applicationController');
+  controller.connectOutlet('body', 'note', aSingleNote);
+}</code></pre>
+</section>
+
+
+<section class="slide">
+<header>Create a Note</header>
+<p>Now let's add functionality to create a new note:</p>
+<h5>The View, Controller...</h5>
+<pre><code>Noted.NewNoteView = Ember.View.extend({
+  <span class="pop">title</span>: null,
+  <span class="pop">message</span>: null,
+  templateName: 'new',
+  classNames: ['new', 'container-fluid'],
+
+  <span class="pop">addNote</span>: function() {
+    var newNote = {
+      title: this.get('title'),
+      message: this.get('message')
+    };
+    this.get('controller').addNote(newNote);
+  }
+});
+
+Noted.NewNoteController = Ember.Controller.extend({
+  <span class="pop">addNote</span>: function(note) {
+    Noted.notes.get('content').pushObject(note);
+    Noted.get('router').transitionTo('notes.index');
+  }
+});</code></pre>
+</section>
+
+
+<section class="slide">
+<header>Create a Note</header>
+<br/>
+<h5>The "New" Templates...</h5>
+<pre><code>&lt;script type="text/x-handlebars" data-template-name="new"&gt;
+&lt;div class="row-fluid"&gt;
+  &lt;h5 class="title input"&gt;Title&lt;/h5&gt;
+  {{view Ember.TextField <span class="pop">valueBinding="view.title"</span>}}
+  &lt;h5 class="message input"&gt;Message&lt;/h5&gt;
+  {{view Ember.TextArea <span class="pop">valueBinding="view.message"</span>}}
+&lt;/div&gt;
+  &lt;div class="meta"&gt;&lt;a {{action <span class="pop">addNote</span> target="view"}}&gt;save&lt;/a&gt;&lt;/div&gt;
+  &lt;div class="meta"&gt;&lt;a {{action <span class="pop">goToNotes</span>}}&gt;cancel&lt;/a&gt;&lt;/div&gt;
+&lt;/script&gt;</code></pre>
+<h5>The updated notes listing Template...</h5>
+<pre><code>&lt;script type="text/x-handlebars" data-template-name="notes"&gt;
+{{#each note in controller}}
+  &lt;div class="row-fluid"&gt;
+    &lt;h5 class="title"&gt;&lt;a {{action showNote note href=true}}&gt;{{note.title}}&lt;/a&gt;&lt;/h5&gt;
+    &lt;div class="message"&gt;{{note.message}}&lt;/div&gt;
+  &lt;/div&gt;
+{{/each}}
+&lt;div class="meta right"&gt;{{controller.length}} in list&lt;/div&gt;
+<span class="pop">&lt;div class="meta"&gt;&lt;a {{action newNote href=true}}&gt;add&lt;/a&gt;&lt;/div&gt;</span>
+&lt;/script&gt;</code></pre>
+</section>
+
+
+<section class="slide">
+<header>Create a Note</header>
+<br/>
+<h5>...and the Route</h5>
+<pre><code>Noted.Router = Ember.Router.extend({
+  [...]
+  notes: Ember.Route.extend({
+      showNote: Ember.Route.transitionTo('notes.show'),
+      goToNotes: Ember.Route.transitionTo('notes.index'),
+      <span class="pop">newNote: Ember.Route.transitionTo('notes.new')</span>,
+      route: '/notes',
+      index: Ember.Route.extend({
+        route: '/',
+        [...]
+      }),
+      show: Ember.Route.extend({
+        route: '/:id',
+        [...]
+      }),
+
+      <span class="pop">new: Ember.Route.extend({
+        route: '/new',
+        connectOutlets: function(router, context) {
+          var controller = router.get('applicationController');
+          controller.connectOutlet('body', 'newNote');
+        }
+      })</span>
+
+    })
+  })
+});</pre></code>
+</section>
+
+
+<section class="slide chapter green">
+  <h1><img src="assets/shipit.png" style="border: 5px solid #487300" /></h1>
+</section>
+
+
+<section class="slide">
+  <header>Resources</header>
+  <br/>
+  <h5>Data Management</h5>
+  <ul>
+    <li>Ember.Data <span class="sm">(https://github.com/emberjs/data)</span></li>
+    <li>Ember.Resource <span class="sm">(https://github.com/staugaard/ember-resource)</span></li>
+  </ul>
+  <h5>Reference</h5>
+  <ul>
+    <li>EmberJS <span class="sm">(http://emberjs.com)</span></li>
+    <li>EmberJS on GitHub <span class="sm"  >(https://github.com/emberjs)</span></li>
+  </ul>
+</section>
+
+
+<section class="slide">
+  <h1>?</h1>
+</section>
+
+<!-- End slides. -->
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+  <span class="deck-status-current"></span>
+  /
+  <span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+  <label for="goto-slide">Go to slide:</label>
+  <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  <datalist id="goto-datalist"></datalist>
+  <input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="../jquery-1.7.2.min.js"></script>
+<script src="../core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+<script src="../extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+    $.deck('.slide');
+  });
+</script>
+</body>
+</html>
