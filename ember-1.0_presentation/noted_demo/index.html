@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Noted</title>
+<script type="text/javascript" src="vendor/jquery-1.7.2.js">
+</script>
+<script type="text/javascript" src="vendor/handlebars-1.0.rc.1.js">
+</script>
+<script type="text/javascript" src="vendor/ember-1.0.pre.js">
+</script>
+<script type="text/javascript" src="lib/seed.js">
+</script>
+
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/main.css" />
+
+
+<!-- Handlebars Templates -->
+
+<script type="text/x-handlebars" data-template-name="application">
+  <h3 class="header">Noted</h3>
+  {{outlet body}}
+  <h3 class="footer"></h3>
+</script>
+
+<script type="text/x-handlebars" data-template-name="notes">
+{{#each note in controller}}
+  <div class="row-fluid">
+    <h5 class="title"><a {{action showNote note href=true}}>{{note.title}}</a></h5>
+    <div class="message">{{note.message}}</div>
+  </div>
+{{/each}}
+<div class="meta right">{{controller.length}} in list</div>
+<div class="meta"><a {{action newNote href=true}}>add</a></div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="note">
+<div class="row-fluid">
+  <h5 class="title">{{controller.content.title}}</h5>
+  <div class="message">{{controller.content.message}}</div>
+</div>
+<div class="meta"><a {{action goToNotes}}>back</a></div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="new">
+<div class="row-fluid">
+  <h5 class="title input">Title</h5>
+  {{view Ember.TextField valueBinding="view.title"}}
+  <h5 class="message input">Message</h5>
+  {{view Ember.TextArea valueBinding="view.message"}}
+</div>
+  <div class="meta"><a {{action addNote target="view"}}>save</a></div>
+  <div class="meta"><a {{action goToNotes}}>cancel</a></div>
+</script>
+
+<!-- Main App -->
+
+<script>
+window.Noted = Ember.Application.create({
+
+  ApplicationController: Ember.Controller.extend(),
+
+  ApplicationView: Ember.View.extend({
+    templateName: 'application',
+    elementId: 'noted',
+    classNames: ['container']
+  })
+});
+
+Noted.Router = Ember.Router.extend({
+  root: Ember.Route.extend({
+
+    index: Ember.Route.extend({
+      route: '/',
+      redirectsTo: 'notes.index'
+    }),
+
+    notes: Ember.Route.extend({
+      showNote: Ember.Route.transitionTo('notes.show'),
+      goToNotes: Ember.Route.transitionTo('notes.index'),
+      newNote: Ember.Route.transitionTo('notes.new'),
+      route: '/notes',
+
+      index: Ember.Route.extend({
+        route: '/',
+        connectOutlets: function(router, context) {
+          var controller = router.get('applicationController');
+          controller.connectOutlet('body', 'notes');
+        },
+      }),
+
+      show: Ember.Route.extend({
+        route: '/:id',
+        serialize: function(router, context) {
+          return {id: context.id};
+        },
+        deserialize: function(router, context) {
+          var controller = router.get('notesController');
+          return controller.findProperty('id', context.id);
+        },
+        connectOutlets: function(router, aNote) {
+          var controller = router.get('applicationController');
+          controller.connectOutlet('body', 'note', aNote);
+        }
+      }),
+
+      new: Ember.Route.extend({
+        route: '/new',
+        connectOutlets: function(router, context) {
+          var controller = router.get('applicationController');
+          controller.connectOutlet('body', 'newNote');
+        }
+      })
+
+
+    })
+  })
+});
+
+Noted.notes = Ember.Object.create({
+  content: Ember.A(seedData.splice(0,3))
+});
+
+Noted.NotesView = Ember.View.extend({
+  templateName: 'notes',
+  tagName: 'ul',
+  classNames: ['list', 'container-fluid']
+});
+
+Noted.NotesController = Ember.ArrayController.extend({
+  contentBinding: 'Noted.notes.content'
+});
+
+Noted.NoteView = Ember.View.extend({
+  templateName: 'note',
+  classNames: ['note', 'container-fluid']
+});
+
+Noted.NoteController = Ember.Controller.extend();
+
+Noted.NewNoteView = Ember.View.extend({
+  title: null,
+  message: null,
+  templateName: 'new',
+  classNames: ['new', 'container-fluid'],
+
+  addNote: function() {
+    var newNote = {
+      title: this.get('title'),
+      message: this.get('message')
+    };
+    this.get('controller').addNote(newNote);
+  }
+});
+
+Noted.NewNoteController = Ember.Controller.extend({
+  addNote: function(note) {
+    Noted.notes.get('content').pushObject(note);
+    Noted.get('router').transitionTo('notes.index');
+  }
+});
+
+Noted.initialize();
+</script>
+
+</head>
+
+<body></body>
+</html>

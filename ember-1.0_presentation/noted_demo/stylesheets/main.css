@@ -1,0 +1,88 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: "GillSans", "san-serif";
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+a {
+  cursor: pointer;
+}
+
+body {
+  margin: 20px 100px;
+  font-family: 'Helvetica-Light';
+}
+
+#noted {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+#noted .header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 20px;
+  background-color: #93d4f6;
+  margin: 0;
+}
+
+#noted .footer {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px;
+  background-color: #93d4f6;
+  margin: 0;
+}
+
+#noted .container-fluid {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+#noted .row-fluid {
+  width: auto;
+  border-radius: 5px;
+  margin: 8px 5px;
+  padding: 10px 20px;
+  background-color: white;
+  clear: both;
+}
+
+#noted .meta {
+  float: left;
+  padding: 5px;
+  margin: 0 18px;
+  font-weight: bold;
+}
+
+#noted .meta.right {
+  float: right;
+}
+
+#noted .new input {
+  width: 515px;
+}
+
+#noted .new textarea {
+  width: 515px;
+  height: 100px;
+}
+
+#noted .input {
+  margin-bottom: 0;
+}
+
+.icon.edit {
+  background-image: url('../vendor/bootstrap/img/glyphicons-halflings.png');
+  width: 14px;
+  height: 14px;
+  background-position: 0 92px;
+}
+
