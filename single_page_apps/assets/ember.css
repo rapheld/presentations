@@ -1,0 +1,18 @@
+.slide .side-by-side {
+  margin: 0 auto;
+}
+
+.slide .side-by-side div,
+.slide .side-by-side img {
+  float: left;
+  margin-right: 50px;
+}
+
+.slide .sm {
+  font-size: 20pt;
+}
+
+.pop {
+  font-weight: bold;
+  color: #ffa100;
+}

@@ -1,0 +1,103 @@
+$zendesk-green: #78A300;
+$zendesk-blue: rgb(26, 116, 176);
+
+@mixin rotate($deg) {
+  -webkit-transform:rotate($deg);
+  -moz-transform:rotate($deg);
+  -ms-transform:rotate($deg);
+  -o-transform:rotate($deg);
+  transform:rotate($deg);
+}
+
+@mixin background-gradient($position, $stop1, $stop2) {
+  background-image: -o-linear-gradient($position, $stop1, $stop2);
+  background-image: -moz-linear-gradient($position, $stop1, $stop2);
+  background-image: -webkit-linear-gradient($position, $stop1, $stop2);
+  background-image: -ms-linear-gradient($position, $stop1, $stop2);
+  background-image: linear-gradient($position, $stop1, $stop2);
+}
+
+.deck-container {
+  color: #555;
+  font-family: DNRR, sans-serif;
+  font-size: 50px;
+
+  /* accommodate color backgrounds */
+  border-left: 40px solid $zendesk-green;
+  padding-left: 0;
+  padding-right: 0px;
+
+  .slide {
+    padding-top: 100px;
+
+    h1 {
+      font-size: 2em;
+      padding-top: 100px;
+      font-family: DNRM, sans-serif;
+
+      .tagline {
+        font-size: 0.5em;
+        font-family: DNRL, sans-serif;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    &.green {
+      background-color: $zendesk-green;
+      color: white;
+    }
+
+    .XL {
+      padding-top: 70px;
+      font-size: 6.5em;
+    }
+
+    .L {
+      padding-top: 100px;
+      font-size: 4.5em;
+    }
+
+    .M {
+      padding-top: 140px;
+      font-size: 3.5em;
+    }
+
+    notes {
+      display: none;
+      font-size: 20pt;
+      color: rgb(150, 150, 150);
+      width: 100%;
+      border-left: 2px solid rgb(150, 150, 150);
+      padding-left: 10px;
+    }
+  }
+
+  &.notes notes { display: block !important;}
+
+  .deck-slide-scaler {
+    border: none;
+  }
+
+  .deck-prev-link, .deck-next-link {
+    display: none;
+  }
+
+  .deck-status {
+    font-size: 16pt;
+    color: #ddd;
+  }
+
+  ul.horizontal li {
+    float: left;
+  }
+
+  li {
+    list-style: none;
+    padding-left: 0px;
+  }
+
+  figure {
+    text-align: center;
+    figcaption { color: #888; font-size: 85%; }
+  }
+}

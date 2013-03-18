@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'DNLTR';
+  src: url("../assets/fonts/226cca47a6a41d745725a674072efac9.eot");
+  src: url("../assets/fonts/226cca47a6a41d745725a674072efac9.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/226cca47a6a41d745725a674072efac9.woff") format("woff"), url("../assets/fonts/226cca47a6a41d745725a674072efac9.ttf") format("truetype"), url("../assets/fonts/226cca47a6a41d745725a674072efac9.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTM';
+  src: url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.eot");
+  src: url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.woff") format("woff"), url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.ttf") format("truetype"), url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTB';
+  src: url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.eot");
+  src: url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.woff") format("woff"), url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.ttf") format("truetype"), url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTL';
+  src: url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.eot");
+  src: url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.woff") format("woff"), url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.ttf") format("truetype"), url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTUL';
+  src: url("../assets/fonts/167170258036a12dea168d1c85ba28cf.eot");
+  src: url("../assets/fonts/167170258036a12dea168d1c85ba28cf.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/167170258036a12dea168d1c85ba28cf.woff") format("woff"), url("../assets/fonts/167170258036a12dea168d1c85ba28cf.ttf") format("truetype"), url("../assets/fonts/167170258036a12dea168d1c85ba28cf.svg#wf") format("svg"); }
+
+/* FF DIN Round Web ==================== */
+@font-face {
+  font-family: 'DNRR';
+  src: url("../assets/fonts/DINRoundWeb.eot");
+  src: url("../assets/fonts/DINRoundWeb.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb.woff") format("woff"); }
+
+@font-face {
+  font-family: 'DNRL';
+  src: url("../assets/fonts/DINRoundWeb-Light.eot");
+  src: url("../assets/fonts/DINRoundWeb-Light.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb-Light.woff") format("woff"); }
+
+@font-face {
+  font-family: 'DNRB';
+  src: url("../assets/fonts/DINRoundWeb-Bold.eot");
+  src: url("../assets/fonts/DINRoundWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: 'DNRM';
+  src: url("../assets/fonts/DINRoundWeb-Medium.eot");
+  src: url("../assets/fonts/DINRoundWeb-Medium.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb-Medium.woff") format("woff"); }
+
+/* FF DIN Italics ==================== */
+@font-face {
+  font-family: 'DNLTRI';
+  src: url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.eot");
+  src: url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.woff") format("woff"), url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.ttf") format("truetype"), url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTLI';
+  src: url("../assets/fonts/14BEC5_5.eot");
+  src: url("../assets/fonts/14BEC5_5.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/14BEC5_5.woff") format("woff"), url("../assets/fonts/14BEC5_5.ttf") format("truetype"), url("../assets/fonts/14BEC5_5.svg#wf") format("svg"); }

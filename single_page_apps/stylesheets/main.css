@@ -1,0 +1,194 @@
+@font-face {
+  font-family: 'DNLTR';
+  src: url("../assets/fonts/226cca47a6a41d745725a674072efac9.eot");
+  src: url("../assets/fonts/226cca47a6a41d745725a674072efac9.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/226cca47a6a41d745725a674072efac9.woff") format("woff"), url("../assets/fonts/226cca47a6a41d745725a674072efac9.ttf") format("truetype"), url("../assets/fonts/226cca47a6a41d745725a674072efac9.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTM';
+  src: url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.eot");
+  src: url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.woff") format("woff"), url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.ttf") format("truetype"), url("../assets/fonts/50e4987ced5d5ab91dbd851dd3ed00ce.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTB';
+  src: url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.eot");
+  src: url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.woff") format("woff"), url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.ttf") format("truetype"), url("../assets/fonts/4595fdd135f25b7a9da20957ba413fed.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTL';
+  src: url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.eot");
+  src: url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.woff") format("woff"), url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.ttf") format("truetype"), url("../assets/fonts/76f378d03fd8c30d4b289cd3fdf308ec.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTUL';
+  src: url("../assets/fonts/167170258036a12dea168d1c85ba28cf.eot");
+  src: url("../assets/fonts/167170258036a12dea168d1c85ba28cf.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/167170258036a12dea168d1c85ba28cf.woff") format("woff"), url("../assets/fonts/167170258036a12dea168d1c85ba28cf.ttf") format("truetype"), url("../assets/fonts/167170258036a12dea168d1c85ba28cf.svg#wf") format("svg"); }
+
+/* FF DIN Round Web ==================== */
+@font-face {
+  font-family: 'DNRR';
+  src: url("../assets/fonts/DINRoundWeb.eot");
+  src: url("../assets/fonts/DINRoundWeb.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb.woff") format("woff"); }
+
+@font-face {
+  font-family: 'DNRL';
+  src: url("../assets/fonts/DINRoundWeb-Light.eot");
+  src: url("../assets/fonts/DINRoundWeb-Light.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb-Light.woff") format("woff"); }
+
+@font-face {
+  font-family: 'DNRB';
+  src: url("../assets/fonts/DINRoundWeb-Bold.eot");
+  src: url("../assets/fonts/DINRoundWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb-Bold.woff") format("woff"); }
+
+@font-face {
+  font-family: 'DNRM';
+  src: url("../assets/fonts/DINRoundWeb-Medium.eot");
+  src: url("../assets/fonts/DINRoundWeb-Medium.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/DINRoundWeb-Medium.woff") format("woff"); }
+
+/* FF DIN Italics ==================== */
+@font-face {
+  font-family: 'DNLTRI';
+  src: url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.eot");
+  src: url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.woff") format("woff"), url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.ttf") format("truetype"), url("../assets/fonts/9a9ab207e67efac6a7ddd286625d5f9b.svg#wf") format("svg"); }
+
+@font-face {
+  font-family: 'DNLTLI';
+  src: url("../assets/fonts/14BEC5_5.eot");
+  src: url("../assets/fonts/14BEC5_5.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/14BEC5_5.woff") format("woff"), url("../assets/fonts/14BEC5_5.ttf") format("truetype"), url("../assets/fonts/14BEC5_5.svg#wf") format("svg"); }
+
+.deck-container {
+  color: #555;
+  font-family: DNRR, sans-serif;
+  font-size: 2.6em;
+  background: #f9f9f9;
+  padding: 0; }
+  .deck-container .slide {
+    padding: 40px !important;
+    border-left: 40px solid #78a300; }
+    .deck-container .slide .main {
+      font-family: DNRM, sans-serif;
+      font-size: 2.6em; }
+      .deck-container .slide .main .tagline {
+        font-family: DNRL, sans-serif;
+        font-size: 0.4em;
+        letter-spacing: .1em; }
+    .deck-container .slide pre {
+      border-radius: 10px; }
+    .deck-container .slide code {
+      font-family: "Lucida Console"; }
+    .deck-container .slide blockquote {
+      /*font-size: 2em;*/
+      padding: 1em 2em;
+      color: #272727; }
+      .deck-container .slide blockquote p {
+        margin: 0; }
+        .deck-container .slide blockquote p + p {
+          margin-top: 1em; }
+      .deck-container .slide blockquote cite {
+        font-size: .5em;
+        font-weight: normal;
+        color: #888;
+        display: block; }
+        .deck-container .slide blockquote cite::before {
+          content: "- "; }
+    .deck-container .slide ::-moz-selection {
+      background: #c00;
+      color: #fff; }
+    .deck-container .slide ::selection {
+      background: #78a300;
+      color: #fff; }
+    .deck-container .slide a, .deck-container .slide a:hover, .deck-container .slide a:focus, .deck-container .slide a:active, .deck-container .slide a:visited {
+      color: #1a74b0;
+      text-decoration: none; }
+    .deck-container .slide a:hover, .deck-container .slide a:focus {
+      text-decoration: underline; }
+    .deck-container .slide .badge {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      display: block;
+      font-size: 18px;
+      padding: 10px 100px;
+      position: absolute;
+      right: -110px;
+      text-align: center;
+      top: 50px;
+      width: 150px; }
+      .deck-container .slide .badge.black {
+        background: #343434;
+        background-image: -o-linear-gradient(left, #212121 0%, #454545 100%);
+        background-image: -moz-linear-gradient(left, #212121 0%, #454545 100%);
+        background-image: -webkit-linear-gradient(left, #212121 0%, #454545 100%);
+        background-image: -ms-linear-gradient(left, #212121 0%, #454545 100%);
+        background-image: linear-gradient(left, #212121 0%, #454545 100%); }
+      .deck-container .slide .badge.orange {
+        background: #c35116; }
+      .deck-container .slide .badge.green {
+        background: #78a300;
+        color: white;
+        font-weight: bold; }
+    .deck-container .slide figure {
+      text-align: center; }
+      .deck-container .slide figure figcaption {
+        color: #888;
+        font-size: 85%; }
+  .deck-container > .slide {
+    overflow: hidden;
+    padding: 10px 35px; }
+    .deck-container > .slide .deck-before, .deck-container > .slide .deck-previous {
+      opacity: 0.4; }
+      .deck-container > .slide .deck-before:not(.deck-child-current) .deck-before, .deck-container > .slide .deck-before:not(.deck-child-current) .deck-previous, .deck-container > .slide .deck-previous:not(.deck-child-current) .deck-before, .deck-container > .slide .deck-previous:not(.deck-child-current) .deck-previous {
+        opacity: 1; }
+    .deck-container > .slide .deck-child-current {
+      opacity: 1; }
+    .deck-container > .slide.chapter {
+      color: #78a300; }
+      .deck-container > .slide.chapter.green {
+        background: #78a300; }
+        .deck-container > .slide.chapter.green, .deck-container > .slide.chapter.green.deck-current ~ .deck-status, .deck-container > .slide.chapter.green code, .deck-container > .slide.chapter.green pre {
+          color: #f8f8f8; }
+    .deck-container > .slide header {
+      color: #7d7d7d;
+      background: transparent url("../assets/grey_lotus.svg") top right no-repeat;
+      background-size: 85px;
+      border-bottom: 5px solid #78a300;
+      font-size: 50px;
+      font-weight: 200;
+      height: 80px;
+      letter-spacing: -3px;
+      padding-top: 5px; }
+    .deck-container > .slide h1 cite {
+      display: block;
+      font-size: 0.25em; }
+    .deck-container > .slide h3 {
+      font-size: 2.5em; }
+    .deck-container > .slide p, .deck-container > .slide ol, .deck-container > .slide ul {
+      margin-top: 1em;
+      font-size: 1.5em; }
+    .deck-container > .slide img, .deck-container > .slide iframe, .deck-container > .slide video {
+      max-height: 100%; }
+  .deck-container .minor {
+    font-size: 0.6em; }
+  .deck-container .deck-status {
+    font-size: 0.5em; }
+  .deck-container .deck-prev-link, .deck-container .deck-next-link {
+    background: #ccc;
+    font-family: serif; }
+    .deck-container .deck-prev-link, .deck-container .deck-prev-link:hover, .deck-container .deck-prev-link:focus, .deck-container .deck-prev-link:active, .deck-container .deck-prev-link:visited, .deck-container .deck-next-link, .deck-container .deck-next-link:hover, .deck-container .deck-next-link:focus, .deck-container .deck-next-link:active, .deck-container .deck-next-link:visited {
+      color: #fff; }
+    .deck-container .deck-prev-link:hover, .deck-container .deck-prev-link:focus, .deck-container .deck-next-link:hover, .deck-container .deck-next-link:focus {
+      background: #c00;
+      text-decoration: none; }
+  .deck-container .deck-status {
+    bottom: 15px;
+    right: 15px; }
+  .deck-container.deck-menu .slide {
+    background: #eee; }
+  .deck-container.deck-menu .deck-current, .no-touch .deck-container.deck-menu .slide:hover {
+    background: #ddf; }
+  .deck-container .slide .slide.incremental.deck-next, .deck-container .slide .slide.incremental.deck-after {
+    display: none; }
+
+.csstransitions.csstransforms .deck-container:not(.deck-menu) > .slide {
+  padding: 10px 35px; }
